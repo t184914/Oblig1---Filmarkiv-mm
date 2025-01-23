@@ -63,6 +63,18 @@ public class Film {
 	public void setSjanger(String sjanger) {
 		this.sjanger = sjanger;
 	}
+	
+	public String getSjanger() {
+		return sjanger;
+	}
+	
+	public void setFilmSelskap(String filmSelskap) {
+		this.filmSelskap = filmSelskap;
+	}
+	
+	public String getFilmSelskap() {
+		return filmSelskap;
+	}
 
 	
 	@Override
@@ -73,7 +85,10 @@ public class Film {
 		Film that = (Film) obj;
 		
 		if (filmSkaper != that.filmSkaper) return false;
-		if ()
+		if (tittel != that.tittel) return false;
+		if (lanseringsÅr != that.lanseringsÅr) return false;
+		if (sjanger != that.sjanger) return false;
+		if (filmSelskap != that.filmSelskap) return false;
 		return filmNr.equals(that.filmNr);
 	}	
 	
@@ -81,7 +96,11 @@ public class Film {
 	public int hashCode() {
 		int resultat = filmNr == null ? 0 : filmNr.hashCode();
 		resultat = resultat + filmSkaper;
-		
+		resultat = resultat + tittel;
+		resultat = resultat + lanseringsÅr;
+		resultat = resultat + sjanger;
+		resultat = resultat + filmSelskap;
+
 		return resultat;
 	}
 	
