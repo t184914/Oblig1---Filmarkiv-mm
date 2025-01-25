@@ -1,30 +1,36 @@
 package no.hvl.data102.filmarkiv.impl;
 
+import java.util.Objects;
 import no.hvl.data102.filmarkiv.test.Film;
 
 public class Film {
+	
+	public enum Sjanger {
+		ACTION, DRAMA, COMEDY, HORROR, THRILLER, DOCUMENTARY, ROMANCE, SCI_FI;
+	}
 
 	private int filmNr; 
 	private String filmSkaper;
 	private String tittel;
 	private int lanseringsÅr;
-	private String sjanger;
+	private Sjanger sjanger;
 	private String filmSelskap;
 	
 	public Film() {
-		this.filmNr = 0;	this.filmSkaper = "";
-		this.tittel = "";	this.lanseringsÅr = 0;
-		this.sjanger = "";	this.filmSelskap = "";
+		this.filmNr = 0;	 this.filmSkaper = "";
+		this.tittel = "";	 this.lanseringsÅr = 0;
+		this.sjanger = null; this.filmSelskap = "";
 		
 		
 		
 	}
 	
-	public Film(int filmNr, String filmSkaper, String tittel, int lanseringsÅr, String sjanger, String filmSelskap) {
+	public Film(int filmNr, String filmSkaper, String tittel, int lanseringsÅr, Sjanger sjanger, String filmSelskap) {
 		
 		this.filmNr = filmNr; this.filmSkaper = filmSkaper; 
 		this.tittel = tittel; this.lanseringsÅr = lanseringsÅr;
-		this.sjanger = sjanger; this.filmSelskap = filmSelskap;
+		this.sjanger = sjanger; 
+		this.filmSelskap = filmSelskap;
 		
 	}
 	
@@ -60,20 +66,12 @@ public class Film {
 		return lanseringsÅr;
 	}
 	
-	public void setSjanger(String sjanger) {
+	public void setSjanger(Sjanger sjanger) {
 		this.sjanger = sjanger;
 	}
-	
-	public String getSjanger() {
+
+	public Sjanger getSjanger(){
 		return sjanger;
-	}
-	
-	public void setFilmSelskap(String filmSelskap) {
-		this.filmSelskap = filmSelskap;
-	}
-	
-	public String getFilmSelskap() {
-		return filmSelskap;
 	}
 
 	
@@ -85,23 +83,13 @@ public class Film {
 		Film that = (Film) obj;
 		
 		if (filmSkaper != that.filmSkaper) return false;
-		if (tittel != that.tittel) return false;
-		if (lanseringsÅr != that.lanseringsÅr) return false;
-		if (sjanger != that.sjanger) return false;
-		if (filmSelskap != that.filmSelskap) return false;
+		if ()
 		return filmNr.equals(that.filmNr);
 	}	
 	
 	@Override
 	public int hashCode() {
-		int resultat = filmNr == null ? 0 : filmNr.hashCode();
-		resultat = resultat + filmSkaper;
-		resultat = resultat + tittel;
-		resultat = resultat + lanseringsÅr;
-		resultat = resultat + sjanger;
-		resultat = resultat + filmSelskap;
-
-		return resultat;
+		return Objects.hash(filmNr);
 	}
 	
 }
