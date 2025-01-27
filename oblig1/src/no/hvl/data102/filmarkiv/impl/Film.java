@@ -1,7 +1,6 @@
 package no.hvl.data102.filmarkiv.impl;
 
 import java.util.Objects;
-import no.hvl.data102.filmarkiv.test.Film;
 
 public class Film {
 	

@@ -21,7 +21,7 @@ public class Filmarkiv implements FilmarkivADT {
         return null;
     }
 
-    public void leggTilFIl(Film nyFilm){
+    public void leggTilFilm(Film nyFilm){
         if (antall == filmer.length){
             System.out.print("Tabellen er full, kunne ikkje legge til film.")
         } else {
