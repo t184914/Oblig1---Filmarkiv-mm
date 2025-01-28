@@ -1,6 +1,7 @@
 package no.hvl.data102.filmarkiv.impl;
 
-import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
+
+import no.hvl.data102.filmarkiv.adt.*;
 
 
 public class Filmarkiv implements FilmarkivADT {
@@ -8,33 +9,33 @@ public class Filmarkiv implements FilmarkivADT {
     private int antall;
 
     public Filmarkiv(int kapasitet) {
-        filmer = new Film[kapasitet]
+        Filmer = new Film[kapasitet];
         antall = 0;
     }
 
     public Film finnFilm(int nr) {
         for (int i = 0; i < antall; i++){
-            if (filmer[i].getfilmnr() == nr) {
-                return filmer[i];
+            if (Filmer[i].getFilmNr() == nr) {
+                return Filmer[i];
             }
         }
         return null;
     }
 
     public void leggTilFilm(Film nyFilm){
-        if (antall == filmer.length){
-            System.out.print("Tabellen er full, kunne ikkje legge til film.")
+        if (antall == Filmer.length){
+            System.out.print("Tabellen er full, kunne ikkje legge til film.");
         } else {
-        filmer[antall] = nyfilm;
-        antall++
+        Filmer[antall] = nyFilm;
+        antall++;
         }
     }
 
     public boolean slettFilm(int filmnr){
         for (int i = 0; i < antall; i++){
-            if (filmer[i].getfilmnr() == filmnr){
-                filmer[i] = filmer[antall - 1];
-                filmer[antall -1] = null;
+            if (Filmer[i].getFilmNr() == filmnr){
+                Filmer[i] = Filmer[antall - 1];
+                Filmer[antall -1] = null;
                 antall--;
                 return true;
             }
@@ -46,31 +47,31 @@ public class Filmarkiv implements FilmarkivADT {
         Film[] tittelsoek = new Film[antall];
         int j = 0;
         for (int i = 0; i < antall; i++){
-            if (filmer[i].getTittel().contains(delstreng)){
-                tittelsoek[j] = filmer[i];
+            if (Filmer[i].getTittel().contains(delstreng)){
+                tittelsoek[j] = Filmer[i];
                 j++;
             }
         }
-        return tittelsoek:
+        return tittelsoek;
     }
 
 
     public Film[] soekProdusent(String delstreng){
-        Film[] produsentsoek = new Film[antall]
+        Film[] produsentsoek = new Film[antall];
         int j = 0;
-        for (int i = 0; i z antall; i++){
-            if (filmer[i].getFilmSkaper().contains(delstreng)){
-                produsentsoek[j] = filmer[i];
+        for (int i = 0; i < antall; i++){
+            if (Filmer[i].getFilmSkaper().contains(delstreng)){
+                produsentsoek[j] = Filmer[i];
                 j++;
             }
         }
         return produsentsoek;
     }
 
-    public int antall(Sjanger sjanger){
+    public int antallSjanger (Sjanger sjanger){
         int teller = 0;
         for (int i = 0; i < antall; i++){
-            if (filmer[i].getSjanger() == sjanger) {
+            if (Filmer[i].getSjanger() == sjanger) {
                 teller++;
             }
         }
@@ -80,4 +81,10 @@ public class Filmarkiv implements FilmarkivADT {
     public int antall(){
         return antall;
     }
+
+	@Override
+	public int antall(Sjanger sjanger) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

@@ -4,9 +4,7 @@ import java.util.Objects;
 
 public class Film {
 	
-	public enum Sjanger {
-		ACTION, DRAMA, COMEDY, HORROR, THRILLER, DOCUMENTARY, ROMANCE, SCI_FI;
-	}
+	
 
 	private int filmNr; 
 	private String filmSkaper;
@@ -75,16 +73,12 @@ public class Film {
 
 	
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) return true;
-		if (obj == null || getClass() != obj.getClass()) return false;
-		
-		Film that = (Film) obj;
-		
-		if (filmSkaper != that.filmSkaper) return false;
-		if ()
-		return filmNr.equals(that.filmNr);
-	}	
+	public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Film film = (Film) o;
+        return filmNr == film.filmNr;
+    }	
 	
 	@Override
 	public int hashCode() {

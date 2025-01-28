@@ -1,4 +1,4 @@
-package no.hvl.data102.filmakriv.klient;
+package no.hvl.data102.filmarkiv.klient;
 
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.Film;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Tekstgrensesnitt{
 
-    private Scanner scanner = new Scanne(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
     public Film lesFilm(){
         System.out.print("Filmnmmer: ");
@@ -51,7 +51,7 @@ public void skrivUTFilmDelstrengTittel(FilmarkivADT arkiv, String delstreng){
 public void skrivUtFilmProdusent(FilmarkivADT arkiv, String delstreng) {
     Film[] filmer = arkiv.soekProdusent(delstreng);
     for (Film film : filmer) {
-        skrivUtFilm(film);
+        skrivutFilm(film);
     }
 }
 public void skrivUtStatistikk(FilmarkivADT arkiv) {
