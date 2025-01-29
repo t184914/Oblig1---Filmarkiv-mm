@@ -36,6 +36,7 @@ public class Meny {
                 case 1:{
                     Film nyFilm = tekstgr.lesFilm();
                     filmarkiv.leggTilFilm(nyFilm);
+                    break;
                 }
                 case 2:{
                     System.out.print("Skriv inn filmnummeret til filmen som skal slettes: ");
@@ -46,21 +47,25 @@ public class Meny {
                     } else {
                         System.out.println("Fant ikkje filmen med dette nummeret.");
                     }
+                    break;
 
                 }
                 case 3:{
                     System.out.print("Skriv inn en del av tittelem: ");
                     String delstreng = scanner.nextLine();
                     tekstgr.skrivUTFilmDelstrengTittel(filmarkiv, delstreng);
+                    break;
                 }
                 case 4:{
                     System.out.println("Skriv inn en del av produsentens navn:");
                     String delstreng = scanner.nextLine();
                     tekstgr.skrivUtFilmProdusent(filmarkiv, delstreng);
+                    break;
 
                 }
                 case 5:{
                     tekstgr.skrivUtStatistikk(filmarkiv);
+                    break;
                 }
                 case 6:{
                     System.out.println("Programmet avsluttes.");
