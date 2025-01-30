@@ -21,7 +21,6 @@ public class Filmarkiv implements FilmarkivADT {
         }
         return null;
     }
-
     public void leggTilFilm(Film nyFilm){
         if (antall == Filmer.length){
             System.out.print("Tabellen er full, kunne ikkje legge til film.");
@@ -44,47 +43,62 @@ public class Filmarkiv implements FilmarkivADT {
     }
 
     public Film[] soekTittel(String delstreng){
+    	delstreng = delstreng.toLowerCase();
         Film[] tittelsoek = new Film[antall];
         int j = 0;
         for (int i = 0; i < antall; i++){
-            if (Filmer[i].getTittel().contains(delstreng)){
+            if (Filmer[i] != null && Filmer[i].getTittel().toLowerCase().contains(delstreng)){
                 tittelsoek[j] = Filmer[i];
                 j++;
             }
         }
-        return tittelsoek;
-    }
+        Film[] resultat = new Film[j];  
+                for (int i = 0; i < j; i++) {
+                    resultat[i] = tittelsoek[i]; 
+                }
+
+                return resultat;
+            }
 
 
     public Film[] soekProdusent(String delstreng){
+    	delstreng = delstreng.toLowerCase();
         Film[] produsentsoek = new Film[antall];
         int j = 0;
         for (int i = 0; i < antall; i++){
-            if (Filmer[i].getFilmSkaper().contains(delstreng)){
+            if (Filmer[i] != null && Filmer[i].getFilmSkaper().toLowerCase().contains(delstreng)){
                 produsentsoek[j] = Filmer[i];
                 j++;
             }
         }
-        return produsentsoek;
+        Film[] resultat = new Film[j];  
+        for (int i = 0; i < j; i++) {
+            resultat[i] = produsentsoek[i]; 
+        }
+
+        return resultat;
     }
+
 
     public int antallSjanger (Sjanger sjanger){
         int teller = 0;
-        for (int i = 0; i < antall; i++){
+        for (int i = 0; i < antall; i++) {
             if (Filmer[i].getSjanger() == sjanger) {
                 teller++;
             }
         }
         return teller;
     }
+    public void skrivUtHeleArkivet() {
+        for (int i = 0; i < antall; i++) {
+            System.out.println(Filmer[i].toString());
+        }
+    }
+    
+   
 
     public int antall(){
         return antall;
     }
 
-	@Override
-	public int antall(Sjanger sjanger) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

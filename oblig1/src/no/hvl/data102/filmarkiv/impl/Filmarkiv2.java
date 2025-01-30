@@ -1,8 +1,8 @@
-package no.hvl.data102.filmarkiv.impl;
+//package no.hvl.data102.filmarkiv.impl;
 
-import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
+//import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 
-public abstract class Filmarkiv2 implements FilmarkivADT {
+//public abstract class Filmarkiv2 implements FilmarkivADT {
     private int antall;
     private LinearNode<Film> start;
 

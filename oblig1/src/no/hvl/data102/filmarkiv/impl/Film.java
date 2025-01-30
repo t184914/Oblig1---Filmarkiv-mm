@@ -70,6 +70,8 @@ public class Film {
 	public Sjanger getSjanger(){
 		return sjanger;
 	}
+	
+	
 
 	
 	@Override
@@ -85,4 +87,15 @@ public class Film {
 		return Objects.hash(filmNr);
 	}
 	
+	public String toString() {
+        return "Film{" +
+                "filmNr=" + filmNr +
+                ", produsent='" + filmSkaper + '\'' +
+                ", tittel='" + tittel + '\'' +
+                ", lanseringsår=" + lanseringsÅr +
+                ", sjanger=" + sjanger +
+                ", filmselskap='" + filmSelskap + '\'' +
+                '}';
+    }
 }
+	

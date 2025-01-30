@@ -52,13 +52,13 @@ public class Meny {
                 }
                 case 3:{
                     System.out.print("Skriv inn en del av tittelem: ");
-                    String delstreng = scanner.nextLine();
+                    String delstreng = scanner.nextLine().toLowerCase();
                     tekstgr.skrivUTFilmDelstrengTittel(filmarkiv, delstreng);
                     break;
                 }
                 case 4:{
                     System.out.println("Skriv inn en del av produsentens navn:");
-                    String delstreng = scanner.nextLine();
+                    String delstreng = scanner.nextLine().toLowerCase();
                     tekstgr.skrivUtFilmProdusent(filmarkiv, delstreng);
                     break;
 

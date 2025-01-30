@@ -4,6 +4,7 @@ import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.impl.Sjanger;
 
+
 import java.util.Scanner;
 
 public class Tekstgrensesnitt{
@@ -41,23 +42,30 @@ public void skrivutFilm(Film film){
     System.out.println(film);
 }
 
+
 public void skrivUTFilmDelstrengTittel(FilmarkivADT arkiv, String delstreng){
     Film[] filmer = arkiv.soekTittel(delstreng);
-    for (Film film : filmer){
-    skrivutFilm(film);
-    }
+    for (Film film : filmer){ 
+    	System.out.println(film.toString());
+    	}
 }
+
+
 
 public void skrivUtFilmProdusent(FilmarkivADT arkiv, String delstreng) {
     Film[] filmer = arkiv.soekProdusent(delstreng);
     for (Film film : filmer) {
-        skrivutFilm(film);
+    	if(filmer != null) {
+    	System.out.println(film.toString());
+    	}
     }
 }
 public void skrivUtStatistikk(FilmarkivADT arkiv) {
     System.out.println("Antall filmer i arkivet: " + arkiv.antall());
     for (Sjanger sjanger : Sjanger.values()) {
-        System.out.println(sjanger + ": " + arkiv.antall(sjanger));
+        System.out.println(sjanger + ": " + arkiv.antallSjanger(sjanger));
     }
 }
+
 }
+
