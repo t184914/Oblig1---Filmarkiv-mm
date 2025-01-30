@@ -1,8 +1,8 @@
-//package no.hvl.data102.filmarkiv.impl;
+package no.hvl.data102.filmarkiv.impl;
 
-//import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
+import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 
-//public abstract class Filmarkiv2 implements FilmarkivADT {
+public class Filmarkiv2 implements FilmarkivADT {
     private int antall;
     private LinearNode<Film> start;
 
@@ -17,6 +17,18 @@
         nyNode.neste = start;
         start = nyNode;
         antall++;
+    }
+    public Film[] hentFilmTabell() {
+        Film[] filmer = new Film[antall];
+        LinearNode<Film> current = start;
+        int i = 0;
+
+        while (current != null) {
+            filmer[i++] = current.data;
+            current = current.neste;
+        }
+
+        return filmer;
     }
 
     @Override
@@ -85,4 +97,48 @@
     public int antall() {
         return antall;
     }
+
+	@Override
+	public Film[] soekProdusent(String delstreng) {
+	    LinearNode<Film> current = start;
+	    int teller = 0;
+
+	    
+	    while (current != null) {
+	        if (current.data.getFilmSkaper().toLowerCase().contains(delstreng.toLowerCase())) {
+	            teller++;
+	        }
+	        current = current.neste;
+	    }
+
+	   
+	    Film[] resultat = new Film[teller];
+	    current = start;
+	    teller = 0;
+
+	    
+	    while (current != null) {
+	        if (current.data.getFilmSkaper().toLowerCase().contains(delstreng.toLowerCase())) {
+	            resultat[teller++] = current.data;
+	        }
+	        current = current.neste;
+	    }
+
+	    return resultat;
+	}
+
+	@Override
+	public int antallSjanger(Sjanger sjanger) {
+	    int teller = 0;
+	    LinearNode<Film> current = start;
+
+	    while (current != null) {
+	        if (current.data.getSjanger() == sjanger) {
+	            teller++;
+	        }
+	        current = current.neste;
+	    }
+
+	    return teller;
+	}
 }

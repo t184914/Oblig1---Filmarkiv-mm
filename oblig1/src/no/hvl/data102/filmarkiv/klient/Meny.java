@@ -27,7 +27,8 @@ public class Meny {
             System.out.println("3: Søk etter filmer basert på tittel");
             System.out.println("4: Søk etter filmer basert på produsent");
             System.out.println("5: Vis statistikk");
-            System.out.println("6: Avslutt");
+            System.out.println("6: Vis alle filmene i arkivet");
+            System.out.println("7: Avslutt");
 
             int valg = scanner.nextInt();
             scanner.nextLine();
@@ -67,7 +68,12 @@ public class Meny {
                     tekstgr.skrivUtStatistikk(filmarkiv);
                     break;
                 }
-                case 6:{
+                case 6 : {
+                    System.out.println("\nAlle filmer i arkivet:");
+                    tekstgr.skrivUtAlleFilmer(filmarkiv);
+                    break;
+                }
+                case 7:{
                     System.out.println("Programmet avsluttes.");
                     scanner.close();
                     return;

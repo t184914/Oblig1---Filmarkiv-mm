@@ -44,4 +44,6 @@ public interface FilmarkivADT {
 	*/
 	int antall();
 	
+	public Film[] hentFilmTabell();
+	
 }

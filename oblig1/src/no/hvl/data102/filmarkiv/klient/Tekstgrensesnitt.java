@@ -26,7 +26,7 @@ public class Tekstgrensesnitt{
         int utgivelsesår = scanner.nextInt();
         scanner.nextLine(); 
 
-        System.out.println("Velg sjanger (1: ACTION, 2: DRAMA, 3: KOMEDIE, 4: ANIMASJON, 5: ROMANTIKK, 6: FANTASY): ");
+        System.out.println("Velg sjanger (1: ACTION, 2: DRAMA, 3: KOMEDIE, 4: GRØSSER, 5: THRILLER, 6: DOKUMENTAR, 7: ROMANTIKK, 8: SCI-FI): ");
         int sjangerValg = scanner.nextInt();
         scanner.nextLine(); 
         Sjanger sjanger = Sjanger.values()[sjangerValg - 1];
@@ -41,6 +41,19 @@ public class Tekstgrensesnitt{
 public void skrivutFilm(Film film){
     System.out.println(film);
 }
+public void skrivUtAlleFilmer(FilmarkivADT arkiv) {
+    Film[] filmer = arkiv.hentFilmTabell();
+    if (filmer.length == 0) {
+        System.out.println("Ingen filmer i arkivet.");
+        return;
+    }
+
+    for (Film film : filmer) {
+        skrivutFilm(film);
+    }
+}
+
+
 
 
 public void skrivUTFilmDelstrengTittel(FilmarkivADT arkiv, String delstreng){

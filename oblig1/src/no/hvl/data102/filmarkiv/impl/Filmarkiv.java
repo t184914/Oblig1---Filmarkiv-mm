@@ -59,6 +59,15 @@ public class Filmarkiv implements FilmarkivADT {
 
                 return resultat;
             }
+    
+    public Film[] hentFilmTabell() {
+        Film[] filmer = new Film[antall];
+        for (int i = 0; i < antall; i++) {
+            filmer[i] = Filmer[i];
+        }
+        return filmer;
+    }
+
 
 
     public Film[] soekProdusent(String delstreng){
